@@ -24,6 +24,8 @@ jobs:
           node-version: 16
 
       - run: npm install
+
+      - run: cd client && npm install && npm run build
       
       - name: Synth stack
         run: yarn --cwd packages/bootstrap cdk synth
