@@ -25,7 +25,8 @@ jobs:
 
       - run: npm install
 
-      - run: cd client && npm install && npm run build
+      - name: build front end
+        run: cd client && npm install && npm run build && cd .. 
       
       - name: Synth stack
         run: yarn --cwd packages/bootstrap cdk synth
