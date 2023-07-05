@@ -1,0 +1,33 @@
+
+name: deploy
+
+on: [push]
+
+jobs:
+  deploy:
+  runs-on: ubuntu-latest
+  steps: 
+
+    - name: clone the repository
+      uses: actions/checkout@v3
+    
+    - name: configure aws credentials
+      uses: aws-actions/configure-aws-credentials@master
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: ${{ secrets.AWS_REGION }}
+    
+    - name: setup node
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14
+      run: npm install
+    
+    - name: Synth stack
+      run: yarn --cwd packages/bootstrap cdk synth
+
+    - name: Deploy stack
+      run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
+
+
