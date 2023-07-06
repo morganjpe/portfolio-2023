@@ -6,6 +6,7 @@
   },
   "scripts": {
     "build": "tsc",
+    "build-front-end": "cd client && npm run build",
     "watch": "tsc -w",
     "test": "jest",
     "cdk": "cdk"
