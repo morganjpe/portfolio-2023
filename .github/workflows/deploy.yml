@@ -29,10 +29,12 @@ jobs:
 
       - name: build front end
         working-directory: "${{ github.workspace }}/client"
-        run: npm install && npm run build
-        
-      -  run: |
+        run: |
+          npm install
+          npm run build
           ls ${{ github.workspace }}/client
+        
+         
       
       # - name: Synth stack
       #   working-directory: "${{ github.workspace }}"
