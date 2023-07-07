@@ -30,13 +30,15 @@ jobs:
       - name: build front end
         working-directory: "${{ github.workspace }}/client"
         run: npm install && npm run build
+        
+      -  run: echo "ls ${{ github.workspace }}/client"
       
-      - name: Synth stack
-        working-directory: "${{ github.workspace }}"
-        run: yarn --cwd packages/bootstrap cdk synth
+      # - name: Synth stack
+      #   working-directory: "${{ github.workspace }}"
+      #   run: yarn --cwd packages/bootstrap cdk synth
 
-      - name: Deploy stack
-        working-directory: "${{ github.workspace }}"
-        run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
+      # - name: Deploy stack
+      #   working-directory: "${{ github.workspace }}"
+      #   run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
 
 
