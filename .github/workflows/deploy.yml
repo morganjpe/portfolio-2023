@@ -30,7 +30,7 @@ jobs:
       - name: build front end
         working-directory: "${{ github.workspace }}/client"
         run: |
-          npm install
+          npm ci
           npm run build
           ls ${{ github.workspace }}/client
           echo "ROOT"
