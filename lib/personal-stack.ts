@@ -8,7 +8,7 @@ export class PersonalStack extends cdk.Stack {
 
     new SPADeploy(this, "client").createSiteWithCloudfront({
       indexDoc: "index.html",
-      websiteFolder: "../client/dist",
+      websiteFolder: "client/dist",
     });
   }
 }
