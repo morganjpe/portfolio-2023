@@ -33,6 +33,8 @@ jobs:
           npm install
           npm run build
           ls ${{ github.workspace }}/client
+          echo "ROOT"
+          ls ${{ github.workspace }}
         
          
       
