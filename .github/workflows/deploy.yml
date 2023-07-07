@@ -31,7 +31,8 @@ jobs:
         working-directory: "${{ github.workspace }}/client"
         run: npm install && npm run build
         
-      -  run: echo "ls ${{ github.workspace }}/client"
+      -  run: |
+          ls ${{ github.workspace }}/client
       
       # - name: Synth stack
       #   working-directory: "${{ github.workspace }}"
