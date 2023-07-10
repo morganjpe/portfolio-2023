@@ -1,26 +1,20 @@
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from "aws-lambda";
+import axios from "axios";
 
-// const stravaStatsUrl = "https://www.strava.com/api/v3/athletes/40972782/stats";
-// const stravaBearerToken = "d32d6abae62ea20ad4bd4104c38d4d2f98ca0987";
-
-// const getData = async () => {
-//   const response = await fetch(stravaStatsUrl, {
-//     headers: {
-//       Authorization: `Bearer ${stravaBearerToken}`,
-//     },
-//   });
-
-//   return response.json();
-// };
-
-export const stravaLambda = async (
+export const handler = async (
   event: APIGatewayProxyEvent
 ): Promise<APIGatewayProxyResult> => {
-  try {
-  } catch (error) {}
+  const response = await axios.get(
+    "https://www.strava.com/api/v3/athletes/40972782/stats",
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.STRAVA_BEARER_TOKEN}`,
+      },
+    }
+  );
 
   return {
     statusCode: 200,
-    body: JSON.stringify({ hello: "world" }),
+    body: JSON.stringify(response),
   };
 };
