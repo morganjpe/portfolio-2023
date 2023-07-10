@@ -52,10 +52,10 @@ jobs:
           cd .. 
           ls
         
-      # - name: Synth stack
-      #   run: yarn --cwd packages/bootstrap cdk synth
+      - name: Synth stack
+        run: yarn --cwd packages/bootstrap cdk synth
 
-      # - name: Deploy stack
-      #   run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
+      - name: Deploy stack
+        run: yarn --cwd packages/bootstrap cdk deploy --require-approval never
 
 
