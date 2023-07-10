@@ -2,7 +2,7 @@
 
 const nextConfig = {
     output: 'export',
-    basePath: "/dist",
+    basePath: "/out",
     images: {
         unoptimized: true,
     },
